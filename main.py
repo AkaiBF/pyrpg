@@ -1,9 +1,12 @@
 from classes.player import Player, bcolors
 from classes.weapon import Weapon
+from classes.spell import Spell
 
 pj1 = Player("Rhogar", 12, 0, 18, 16, 13, 14, 9, 7, 16)
 pj2 = Player("Berto", 30, 0, 12, 12, 10, 18, 10, 10, 10)
 sword = Weapon(6, "Sword", 1)
+spellTest = Spell(3, 1)
+print(spellTest.getDamageTypeName())
 
 while(pj1.hp > 0 and pj2.hp > 0):
 	if(pj1.hit(pj2.armor)):
