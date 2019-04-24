@@ -44,4 +44,17 @@ class Player:
 		else:
 			return False
 
+	def dexST(self, dc):
+		return (random.randrange(1, 20) + self.getMod(self.dextery)) >= dc
 
+	def consST(self, dc):
+		return (random.randrange(1, 20) + self.getMod(self.constitution)) >= dc
+
+	def intST(self, dc):
+		return (random.randrange(1, 20) + self.getMod(self.intelligence)) >= dc
+
+	def wisST(self, dc):
+		return (random.randrange(1, 20) + self.getMod(self.wisdom)) >= dc
+
+	def charST(self, dc):
+		return (random.randrange(1, 20) + self.getMod(self.charisma)) >= dc
