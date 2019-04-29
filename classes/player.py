@@ -25,8 +25,13 @@ class Player:
 		self.intelligence = intelligence
 		self.wisdom = wisdom
 		self.charisma = charisma
+		self.advantage = 0
 
 	def hit(self, armor):
+		if(self.advantage < 0):
+			return self.disadvantageHit(armor)
+		if(self.advantage > 0):
+			return self.advantageHit(armor)
 		return (random.randrange(1, 20) + self.getMod(self.strength)) >= armor
 
 	def getMod(self, stat):
@@ -58,3 +63,19 @@ class Player:
 
 	def charST(self, dc):
 		return (random.randrange(1, 20) + self.getMod(self.charisma)) >= dc
+
+	''' ADVANTAGE/DISADVANTAGE CONTROL '''
+	def imposeAdvantage(self):
+		self.advantage += 1
+
+	def imposeDisadvantage(self):
+		self.advantage -= 1
+
+	def normalizeAdvantage(self):
+		if(self.advantage > 0):
+			self.advantage -= 1
+		if(self.advantage < 0):
+			self.advantage += 1
+
+	def resetAdvantage(self):
+		self.advantage = 0

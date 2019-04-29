@@ -1,12 +1,15 @@
 from classes.player import Player, bcolors
 from classes.weapon import Weapon
 from classes.spell import Spell
+from classes.item import Item
 
 pj1 = Player("Rhogar", 12, 45, 18, 16, 13, 14, 9, 7, 16)
 pj2 = Player("Berto", 30, 30, 12, 12, 10, 18, 10, 10, 10)
 sword = Weapon(6, "Sword", 1)
 healingSpell = Spell(12, 7, 5)
 fireball = Spell(6, 1, 12)
+advantager = Item(1, 'common', 1)
+advantager.use(pj1, pj2)
 
 def menu():
 	print("Acciones")
